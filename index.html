@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./src/mundo.png">
+    <title>Conversor de Moedas</title>
+</head>
+
+<body>
+
+    <aside class="menu-lateral">
+        <ul>
+            <li>
+                <a href="https://github.com/Andre-FOliveira" target="_blank">
+                    <img src="./src/github.svg" alt="logo Github" />
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.linkedin.com/in/andr%C3%A9-oliveira-b1a90841/" target="_blank">
+                    <img src="./src/linkedin-in.svg" alt="logo linkedin-in" />
+                </a>
+            </li>
+
+        </ul>
+    </aside>
+
+    <img class="logo" src="./src/logo2.gif" alt="logo tio patinhas">
+
+    <main>
+        <div class="title">
+            <h2><b>Conversor de Moedas</b></h2>
+        </div>
+        <div class="conteudo">
+        <label>
+            <p>Converter <b>de</b></p>
+            <select class="modeda-select1">
+                <option value="real">R$ Real Brasileiro</option>
+                <option value="dolar">$ Dolar Americano</option>
+                <option value="euro">€ Euro</option>
+                <option value="libra">£ Libra</option>
+                <option value="bitcoin">₿ Bitcoin</option>
+            </select>
+        </label>
+
+        <label>
+            <p>Converter <b>para</b></p>
+            <select class="modeda-select">
+                <option value="dolar">$ Dolar Americano</option>
+                <option value="euro">€ Euro</option>
+                <option value="libra">£ Libra</option>
+                <option value="bitcoin">₿ Bitcoin</option>
+                <option value="real">R$ Real Brasileiro</option>
+            </select>
+        </label>
+
+        <label>
+            <p>Valor</p>
+            <input class="input-value" placeholder="R$">
+        </label>
+
+        <button class="bt-converter">Converter</button>
+
+        <section>
+            <div class="container-resultados">
+                <img id="flat2" class="bandeiras" src="./src/brasil1.png" alt="Moeda a converter">
+                <p id="real" class="moeda">Real</p>
+                <p class="valor-converter">R$ 0,00</p>
+            </div>
+
+            <img class="setal" src="./src/seta-lateral.png" alt="Seta Lateral">
+            <img class="setab" src="./src/seta.png" alt="Seta baixo">
+
+            <div class="container-resultados">
+                <img id="flat" class="bandeiras" src="./src/usa1.png" alt="Moeda a convertida">
+                <p id="dolar" class="moeda">Dolar</p>
+                <p class="valor-convertido">$ 0,00</p>
+            </div>
+        </section>
+    </div>
+    </main>
+
+</body>
+<script src="./js/script.js"></script>
+
+</html>
