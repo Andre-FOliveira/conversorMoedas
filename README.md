@@ -38,7 +38,7 @@ O projeto consiste em converter valores entre diferentes moedas com a cotação 
 
 ## 🔖 Site
 
-Você pode visualizar a pagina do projeto através <a href="" target="_blank">DESSE LINK</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+Você pode visualizar a pagina do projeto através <a href="https://changecoins.netlify.app/" target="_blank">DESSE LINK</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 
 ---
 
