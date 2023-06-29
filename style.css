@@ -164,6 +164,7 @@ section {
 
 .bandeiras {
     width: 60px;
+   filter: contrast(150%);
 }
 
 .setab,
