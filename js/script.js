@@ -2,8 +2,8 @@ const convertButton = document.querySelector(".bt-converter")
 const currencySelect = document.querySelector(".modeda-select")
 const currencySelect2 = document.querySelector(".modeda-select1")
 
-const url = 'https://economia.awesomeapi.com.br/last/'
-const coins = 'USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL'
+const url = 'https://economia.awesomeapi.com.br/last/' // Criando variaveis com o  Site da API para atualizar o valor em tempo real
+const coins = 'USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL,CAD-BRL'  // Completo do site, com as moedas que serão utilizadas
 
 function convertValue() {
     const inputValue = document.querySelector(".input-value").value //Valor digitado
@@ -11,17 +11,19 @@ function convertValue() {
     const valorConvertido = document.querySelector(".valor-convertido");
 
 
-    fetch(url + coins)
+    fetch(url + coins)  // Ultilizando as Variaveis do Caminho para ser utilizado a API
         .then(function (response) {
             return response.json();
         })
         .then(function (data){
-            const dolarToday = data.USDBRL.ask //Dolar do dia
+            const dolarToday = data.USDBRL.ask // Caminho para pegar o valor da moeda atualizado da API
             const euroToday = data.EURBRL.ask //Euro do dia 
             const libraToday = data.GBPBRL.ask
             const bitcoinToday = data.BTCBRL.ask
+            const canadaToday = data.CADBRL.ask
             const realToday = 1.0
 
+           console.log(data);
 
             if (currencySelect2.value == "dolar") {
 
@@ -66,6 +68,15 @@ function convertValue() {
                 valorConverter.innerHTML = new Intl.NumberFormat("pt-BR", {
                     style: "currency",
                     currency: "BRL"
+                }).format(inputValue)
+
+            }
+
+            if (currencySelect2.value == "canada") {
+
+                valorConverter.innerHTML = new Intl.NumberFormat("en-CA", {
+                    style: "currency",
+                    currency: "CAD"
                 }).format(inputValue)
 
             }
@@ -119,6 +130,15 @@ function convertValue() {
 
             }
 
+            if (currencySelect.value == "canada") {
+
+                valorConverter.innerHTML = new Intl.NumberFormat("en-CA", {
+                    style: "currency",
+                    currency: "CAD"
+                }).format(inputValue)
+
+            }
+
 
             if (currencySelect2.value == "real") {
 
@@ -128,6 +148,17 @@ function convertValue() {
                         style: "currency",
                         currency: "BRL"
                     }).format(inputValue * 1)
+                }
+            }
+
+            if (currencySelect2.value == "real") {
+
+                if (currencySelect.value == "canada") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("en-CA", {
+                        style: "currency",
+                        currency: "CAD"
+                    }).format(inputValue * realToday / (canadaToday))
                 }
             }
 
@@ -189,6 +220,16 @@ function convertValue() {
                 }
             }
 
+            if (currencySelect2.value == "dolar") {
+
+                if (currencySelect.value == "canada") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("en-CA", {
+                        style: "currency",
+                        currency: "CAD"
+                    }).format(inputValue * dolarToday / (canadaToday))
+                }
+            }
 
 
             // Converte de Euro
@@ -249,6 +290,16 @@ function convertValue() {
                 }
             }
 
+            if (currencySelect2.value == "euro") {
+
+                if (currencySelect.value == "canada") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("en-CA", {
+                        style: "currency",
+                        currency: "CAD"
+                    }).format(inputValue * euroToday / (canadaToday))
+                }
+            }
 
             // Converte da Libra
             if (currencySelect2.value == "libra") {
@@ -308,6 +359,16 @@ function convertValue() {
             }
 
 
+            if (currencySelect2.value == "libra") {
+
+                if (currencySelect.value == "canada") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("en-CA", {
+                        style: "currency",
+                        currency: "CAD"
+                    }).format(inputValue * libraToday / (canadaToday))
+                }
+            }
 
             // Converte de Bitcoin
             if (currencySelect2.value == "bitcoin") {
@@ -366,6 +427,88 @@ function convertValue() {
                 }
             }
 
+            if (currencySelect2.value == "bitcoin") {
+
+                if (currencySelect.value == "canada") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("en-CA", {
+                        style: "currency",
+                        currency: "CAD"
+                    }).format(inputValue * bitcoinToday / (canadaToday))
+                }
+            }
+           
+
+             // Converte de Dolar Canadense
+             if (currencySelect2.value == "canada") {
+
+                if (currencySelect.value == "canada") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("en-CA", {
+                        style: "currency",
+                        currency: "CAD"
+                    }).format(inputValue * 1)
+                }
+            }
+
+            if (currencySelect2.value == "canada") {
+
+                if (currencySelect.value == "dolar") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD"
+                    }).format(inputValue * canadaToday / (dolarToday))
+                }
+            }
+
+
+            if (currencySelect2.value == "canada") {
+
+                if (currencySelect.value == "real") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("pt-BR", {
+                        style: "currency",
+                        currency: "BRL"
+                    }).format(inputValue * canadaToday / (realToday))
+                }
+            }
+
+            if (currencySelect2.value == "canada") {
+
+                if (currencySelect.value == "euro") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("de-DE", {
+                        style: "currency",
+                        currency: "EUR"
+                    }).format(inputValue * canadaToday / (euroToday))
+                }
+            }
+
+            if (currencySelect2.value == "canada") {
+
+                if (currencySelect.value == "libra") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("pt-BR", {
+                        style: "currency",
+                        currency: "GBP"
+                    }).format(inputValue * canadaToday / (libraToday))
+                }
+            }
+
+            if (currencySelect2.value == "canada") {
+
+                if (currencySelect.value == "bitcoin") {
+
+                    valorConvertido.innerHTML = new Intl.NumberFormat("de-DE", {
+                        style: "currency",
+                        currency: "BTC"
+                    }).format(inputValue * canadaToday / (bitcoinToday))
+                }
+            }
+
+
+
         })
 
 }
@@ -407,6 +550,13 @@ function changeMoeda() {
 
         changeName.innerHTML = "Real"
         changeImg.src = "./src/brasil1.png"
+
+    }
+
+    if (currencySelect.value == "canada") {
+
+        changeName.innerHTML = "Dolar Canadense"
+        changeImg.src = "./src/canada.png"
 
     }
     convertValue()
@@ -452,6 +602,13 @@ function changeMoeda2() {
 
         changeName.innerHTML = "Real"
         changeImg.src = "./src/brasil1.png"
+
+    }
+
+    if (currencySelect2.value == "canada") {
+
+        changeName.innerHTML = "Dolar Canadense"
+        changeImg.src = "./src/canada.png"
 
     }
     convertValue()
